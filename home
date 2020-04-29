@@ -1,0 +1,12 @@
+[all:vars]
+ansible_user=shyam
+ansible_ssh_pass=cisco
+ansible_network_os=ios
+ansible_connection=network_cli
+
+
+
+[Routers]
+
+R2 ansible_host=192.168.1.91
+R3 ansible_host=192.168.1.92

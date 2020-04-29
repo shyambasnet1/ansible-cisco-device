@@ -1,0 +1,18 @@
+## Playbook to configure some stuff 
+
+- hosts: Routers
+  gather_facts: false
+
+  tasks:
+  - name: Push config file 
+    ios_config:
+      src: "./test.txt"
+
+  - name: remove username steve
+    ios_user: 
+      name: steve
+      state: absent
+
+  - name: Test reachability to default Router 192.168.1.91
+    ios_ping:
+      dest: 192.168.1.254

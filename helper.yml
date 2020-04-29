@@ -1,0 +1,12 @@
+---
+- name: configure ip-helpers with a loop
+  connection: network_cli
+  hosts: all
+  tasks: 
+    - name: configure ip-helpers
+      ios_command: 
+         commands: 
+          -  show ip int brief 
+      register: output
+    - name: show 
+      debug: var=output

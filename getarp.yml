@@ -1,0 +1,14 @@
+---
+- name: Get ARP information
+  connection: network_cli
+  hosts: 192.168.1.91
+  gather_facts: false
+
+
+  tasks:
+    - name: show arp
+      raw: "show arp"
+
+      register: print_output
+
+    - debug: var=print_output.stdout_lines

@@ -1,0 +1,35 @@
+---
+- name: multiline configuration 
+  connection: network_cli
+  hosts: Routers
+  tasks: 
+    - name: create access-list
+      ios_config: 
+        lines: 
+          - 10 permit ip 192.168.1.0 0.0.0.255 any
+          - 20 deny ip any any
+        parents: ip access extended permit_mgmt
+       # before: no ip access-list extended permit_mgmt
+        match: exact
+      
+    - name: apply access-list to GE0/0
+      ios_config: 
+        lines:
+          - description management interface
+          - ip access-group permit_mgmt in
+        parents: interface GigabitEthernet0/0
+        match: exact
+
+- name: Verification
+  connection: network_cli
+  hosts: Routers
+  tasks:
+    - name: show run int GE0/0
+      ios_command: 
+        commands:
+          - show run interface GigabitEthernet0/0
+      register: output
+
+    - name: display output
+      debug:
+        var: output

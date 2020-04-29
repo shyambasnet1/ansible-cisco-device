@@ -1,0 +1,13 @@
+---
+- name: multiline configuration 
+  connection: network_cli
+  hosts: Routers
+  tasks: 
+    - name: create access-list
+      ios_config: 
+          save_when: always  
+      register: output
+
+    - name: display output
+      debug:
+        var: output
