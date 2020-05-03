@@ -6,11 +6,11 @@
   tasks:
   - name: Push config file 
     ios_config:
-      src: "./test.txt"
+      src: "./test.txt" # config file which need to push devcie  
 
-  - name: remove username steve
+  - name: remove username 
     ios_user: 
-      name: steve
+      name: steve # steve username delete 
       state: absent
 
   - name: Test reachability to default Router 192.168.1.91
