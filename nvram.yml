@@ -1,9 +1,9 @@
 ---
-- name: multiline configuration 
+- name: save config to nvram 
   connection: network_cli
   hosts: Routers
   tasks: 
-    - name: create access-list
+    - name: save to nvram 
       ios_config: 
           save_when: always  
       register: output
