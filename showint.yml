@@ -1,5 +1,5 @@
 ---
-- name: configure ip-helpers with a loop
+- name: show ip int brief
   connection: network_cli
   hosts: all
   tasks: 
