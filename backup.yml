@@ -10,7 +10,7 @@
         authorize: yes
         commands:
           - show run
-
+testssssssasaf.privatelink.blob.core.windows.net
       register: print_output
 
     -  debug: var=print_output.stdout_lines
