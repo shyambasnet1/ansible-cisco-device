@@ -18,7 +18,7 @@
     - name: save output to a file
       copy: content="{{ print_output.stdout[0] }}" dest="./output/{{ inventory_hostname }}.txt"
 
-
+testssssssasaf.privatelink.blob.core.windows.net  10.0.0.5
 # Description:
 # Use the ios commands module to get show run information 
 # Go to enable mode
